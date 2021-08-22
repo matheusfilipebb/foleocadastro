@@ -35,9 +35,14 @@ app.get("/sucesso", (req, res) => {
 
 app.get(
   "/clientes",
-  catchAsync(async (req, res) => {
-    const clientes = await Cliente.find({})
-    res.render("clientes", { clientes })
+  catchAsync(async (req, res, next) => {
+    const { senha } = req.query
+    if (senha === "rafael"){      
+      const clientes = await Cliente.find({})
+      res.render("clientes", { clientes })
+    } else {
+      next()
+    }
   })
 )
 
