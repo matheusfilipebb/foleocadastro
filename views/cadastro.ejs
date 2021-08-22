@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bg-light">
+    <header class="bg-dark shadow">
+      <div class="container d-flex flex-wrap align-items-center justify-content-center py-3 mb-5">
+        <a href="/" class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+          <img width="500" src="images/logo-aplayers-vetor.svg" alt="" srcset="" />
+        </a>
+      </div>
+    </header>
+    <main>
+      <div class="col-md-6 col-10 mx-auto">
+        <h4 class="mb-3">Informações pessoais</h4>
+        <form class="needs-validation" method="POST" action="/" novalidate>
+          <div class="row g-3">
+            <div class="">
+              <label for="nome" class="form-label">Nome</label>
+              <input
+                type="text"
+                class="form-control"
+                name="nome"
+                id="nome"
+                placeholder=""
+                value=""
+                required
+              />
+              <div class="invalid-feedback">Por favor, insira um nome</div>
+            </div>
+
+            <div class="">
+              <label for="cpf" class="form-label">CPF</label>
+              <input type="cpf" class="form-control" id="cpf" name="cpf" placeholder="" required />
+              <div class="invalid-feedback">Por favor, insira um CPF</div>
+            </div>
+
+            <div class="">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="" required />
+              <div class="invalid-feedback">Por favor, insira um email</div>
+            </div>
+
+            <div class="">
+              <label for="telefone" class="form-label">Telefone</label>
+              <input
+                type="tel"
+                class="form-control"
+                id="telefone"
+                name="telefone"
+                placeholder=""
+                required
+              />
+              <div class="invalid-feedback">Por favor, insira um número de telefone</div>
+            </div>
+          </div>
+
+          <button class="mt-5 w-100 btn-solid-lg fs-5 fw-normal" type="submit">Abrir conta</button>
+
+        </form>
+      </div>
+    </main>
+    <script src="/javascripts/phoneNumber.js"></script>
+    <script src="/javascripts/formValidationBootstrap.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      document.write(
+        '<script src="http://' +
+          (location.host || "localhost").split(":")[0] +
+          ':35729/livereload.js?snipver=1"></' +
+          "script>"
+      )
+    </script>
+  </body>
+</html>
