@@ -68,6 +68,6 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error", { err })
 })
 
-app.listen(3000, () => {
+app.listen(22, () => {
   console.log("Servidor na porta 3000")
 })
