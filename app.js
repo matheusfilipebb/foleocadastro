@@ -1,15 +1,24 @@
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config()
+}
+
 const express = require("express")
 const path = require("path")
 const mongoose = require("mongoose")
+const helmet = require("helmet")
+const mongoSanitize = require("express-mongo-sanitize")
 const Cliente = require("./models/cliente")
 const ExpressError = require("./utils/ExpressError")
 const catchAsync = require("./utils/catchAsync")
 const app = express()
 
-mongoose.connect("mongodb://localhost:27017/foleocadastro", {
+const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/foleocadastro"
+
+mongoose.connect(dbUrl, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
+  useFindAndModify: false,
 })
 
 const db = mongoose.connection
@@ -21,23 +30,26 @@ db.once("open", () => {
 app.set("view engine", "ejs")
 app.set("views", path.join(__dirname, "views")) //estabelece a pasta "views" como caminho às páginas a partir deste arquivo JS
 
+app.use(mongoSanitize({ replaceWith: "_" })) //não permite o usuário inserir $, exemplo: "$gt":""
 app.use(express.urlencoded({ extended: false })) //to parse req.body (somente "extended: true")
 app.use(express.json())
 app.use(express.static(path.join(__dirname, "public"))) //estabelece a pasta "public" como caminho inicial padrão para os os demais arquivos, como EJS, após redirecionamento deste arquivo JS
+app.use(helmet({ contentSecurityPolicy: false })) //para maior segurança use "helmet()"
 
 app.get("/", (req, res) => {
   res.render("cadastro")
 })
 
 app.get("/sucesso", (req, res) => {
-  res.send("seu cadastro deu certo")
+  res.render("sucesso")
 })
 
+const senha = process.env.SENHA || "123"
 app.get(
   "/clientes",
   catchAsync(async (req, res, next) => {
-    const { senha } = req.query
-    if (senha === "rafael"){      
+    const { acesso } = req.query
+    if (acesso === senha) {
       const clientes = await Cliente.find({})
       res.render("clientes", { clientes })
     } else {
@@ -68,6 +80,7 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error", { err })
 })
 
-app.listen(3000, () => {
-  console.log("Servidor na porta 3000")
+const port = process.env.PORT || 3000
+app.listen(port, () => {
+  console.log(`Servidor na porta ${port}`)
 })
