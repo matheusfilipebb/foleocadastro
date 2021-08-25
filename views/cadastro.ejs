@@ -11,28 +11,32 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link rel="icon" href="images/safra-icon.png">
+    <link rel="icon" href="images/safra-icon.png" />
   </head>
-  <body
-    style="
-      background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.95)), url(../images/grafico.jpg);
-      background-position-x: center;
-      background-size: cover;
-      height: 100vh;
-    "
-  >
+  <body style="min-height: 100vh; display: flex; flex-direction: column">
     <header class="bg-dark shadow">
-      <div class="container d-flex flex-wrap align-items-center justify-content-around py-3 mb-5">
+      <div class="container d-flex flex-wrap align-items-center justify-content-around py-3">
         <a href="https://foleo.com.br/" class="mb-4 mb-lg-0">
           <img width="250" src="images/foleo-logo-branca.png" alt="" srcset="" />
         </a>
-        <a href="https://aplayersinvestimentos.com.br/" class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <a
+          href="https://aplayersinvestimentos.com.br/"
+          class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0"
+        >
           <img width="450" src="images/logo-aplayers-vetor.svg" alt="" srcset="" />
         </a>
       </div>
     </header>
-    <main>
-      <div class="col-md-6 col-10 mx-auto">
+    <main
+      style="
+        background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.95)),
+          url(../images/grafico.jpg);
+        background-position: center;
+        background-size: cover;
+        flex: 1 0 auto;
+      "
+    >
+      <div class="col-md-6 col-10 mx-auto pt-5">
         <h4 class="mb-3">Informações pessoais</h4>
         <form class="needs-validation" method="POST" action="/" novalidate>
           <div class="row g-3">

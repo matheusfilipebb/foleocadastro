@@ -14,16 +14,9 @@
     />
     <link rel="icon" href="images/safra-icon.png" />
   </head>
-  <body
-    style="
-      background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.95)),
-        url(../images/grafico.jpg);
-      background-size: cover;
-      height: 100vh;
-    "
-  >
+  <body style="min-height: 100vh; display: flex; flex-direction: column">
     <header class="bg-dark shadow">
-      <div class="container d-flex flex-wrap align-items-center justify-content-around py-3 mb-5">
+      <div class="container d-flex flex-wrap align-items-center justify-content-around py-3">
         <a href="https://foleo.com.br/" class="mb-4 mb-lg-0">
           <img width="250" src="images/foleo-logo-branca.png" alt="" srcset="" />
         </a>
@@ -35,8 +28,16 @@
         </a>
       </div>
     </header>
-    <div class="mt-4">
-      <div class="col-md-8 col-10 mx-auto">
+    <div
+      style="
+        background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.95)),
+          url(../images/grafico.jpg);
+        background-position: center;
+        background-size: cover;
+        flex: 1 0 auto;
+      "
+    >
+      <div class="col-md-8 col-10 mx-auto pt-5">
         <div class="alert alert-info" role="alert">
           <h4 class="alert-heading text-center">
             Seja bem vindo ao melhor escritório de investimentos do Brasil!
