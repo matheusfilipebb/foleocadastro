@@ -1,0 +1,1 @@
+### Este é o código do site [https://www.foleocadastro.com.br/](https://www.foleocadastro.com.br/), que foi criado por mim a pedido da [A.Players Investimentos](https://www.linkedin.com/company/aplayersinvestimentos/), para a capitação de novos clientes redirecionados do site [https://foleo.com.br/](https://foleo.com.br/)
